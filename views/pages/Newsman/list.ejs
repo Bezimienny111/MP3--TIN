@@ -1,0 +1,41 @@
+<%- include('../../fragments/header.ejs') %>
+<main>
+	<h2> <%= __('man.list.title') %></h2>
+	<table class="table-list">
+		<thead>
+			<tr>
+				<th><%= __('man.fields.Nick') %></th>
+				<th><%= __('man.fields.Email') %></th>
+				<th><%= __('list.actions.title') %></th>
+			</tr>
+			
+		</thead>
+		<tbody>
+		  <% for (let man of newsman) { %>
+			<tr>
+				<td><%= man.Nick %></td>
+				<td><%= man.Email %></td>
+				<td>
+					<ul class ="list-actions">
+						<li>
+							<a href="/newsman/details/<%=man.ID_Newsman%>" class="list-actions-button-details"><%= __('list.actions.details') %></a>
+						</li>
+						<%  if((loggedUser.Admin === 1)) { %>
+						<li>
+							<a href="/newsman/edit/<%=man.ID_Newsman%>" class ="list-actions-button-edit"><%= __('list.actions.edit') %></a>
+						</li>
+						<li>
+							<a href="/newsman/delete/<%=man.ID_Newsman%>" class="list-actions-button-delete"><%= __('list.actions.delete') %></a>
+						</li>
+						<% } %>
+					</ul>
+				</td>
+			</tr>
+			<% } %>
+		</tbody>
+	</table>
+	<%  if((loggedUser.Admin === 1)) { %>
+	<p><a href="/newsman/add" class="button-add"><%= __('man.list.addNew') %></a></p>
+	<% } %>
+</main>
+<%- include('../../fragments/footer.ejs') %>

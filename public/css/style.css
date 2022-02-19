@@ -1,0 +1,409 @@
+html {
+	background-color: #E6E6FA;
+	font-family: sans-serif;
+}
+body{
+	min-width: 600px;
+}
+heade,main,footer,nav {
+	margin: 1rem;
+}
+
+header,footer {
+	background-color: #34495e;
+	color: #F0FFF0;
+	padding: 1rem;
+	
+	
+}
+
+header {
+	display: flex;
+	justify-content: space-between;
+}
+
+nav ul{
+	width: 300px;
+	display: block;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+/* 	padding: 0;
+	 display: flex;
+	list-style-type: none; */
+}
+nav ul li{
+	/* float:left; */
+	display: block;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+nav ul li a{
+	/* display: inline-block;
+	color: #2c3e50;
+	padding: 1rem 2rem;
+	text-decoration: none; */
+	display: block;
+	width: 186px;
+	text-decoration: none;
+	background-color: #ADFF2F;
+	color: #000;
+	padding: 5px;
+	border: 2px outset #228B22;
+	
+	
+}
+nav ul li a:hover{
+	background-color: #d35400;
+	color: #ecf0f1;
+	border-style: inset;
+	padding: 7px 3px 3px 7px;
+}
+nav ul li a.active{
+	background-color: #95a5a6;
+	color: #ecf0f1;
+}
+
+main {
+	padding: 1.5rem;
+}
+footer{
+	text-align: center;
+	margin-right: 50rem;
+}
+main h2 {
+	border-bottom: 1px solid #7f8c8d;
+	margin-bottom: 2rem;
+}
+.table-list{
+	border-collapse: collapse;
+	color:#2c3e50;
+	width: 100%;
+}
+.table-list,
+.batvle-list th,
+.table-list td {
+	border: 1px solid #0c3c93
+}
+.table-list th,
+.table-list td {
+	padding: 0.5rem;
+}
+.table-list th,
+.table-list tbody tr:nth-child(even){
+	background-color: #ecf0f3;
+}
+
+.list-actions{
+	margin: 0;
+	text-align: center;
+	list-style-type: none;
+	padding: 0;
+}
+.list-actions li{
+	display:inline-block;
+}
+.list-actions-button-back,
+.list-actions-button-edit2,
+.list-actions-button-details,
+.list-actions-button-edit,
+.list-actions-button-delete{
+	display: inline-block;
+	width: 58px;
+	padding: 0.25rem 0.5rem;
+	
+}
+.list-actions-button-back,
+.list-actions-button-edit2,
+.list-actions-button-details,
+.list-actions-button-edit,
+.list-actions-button-delete,
+.button-add,
+.form-button-submit,
+.form-button-cancel{
+	border: solid ;
+	border-radius: 2px;
+	color: #DDDDDD;
+	text-decoration: none;
+	text-align: center;
+	font-size: 0.8rem;
+	
+}
+.list-actions-button-details,
+.list-actions-button-edit{
+	margin-right: 1rem;
+}
+.list-actions-button-back{
+	background-color:#FF33CC;
+	padding: 0.5rem 1rem;
+}
+.list-actions-button-back:hover{
+	background-color:#FF66CC;
+}
+.list-actions-button-details{
+	background-color: #3900f9;
+}
+.list-actions-button-details:hover{
+	background-color: #3699fc;
+}
+.list-actions-button-edit{
+	background-color: #6666FF;
+}
+.list-actions-button-edit:hover{
+	background-color: #f1c40f;
+}
+.list-actions-button-edit2{
+	background-color: #0033FF;
+	padding: 0.5rem 1rem;
+	
+}
+.list-actions-button-edit2:hover{
+	background-color: #0099FF;
+}
+.list-actions-button-delete{
+	background-color: #c0393f;
+}
+.list-actions-button-delete:hover{
+	background-color: #f93c3c;
+}
+.button-add,
+.form-button-submit,
+.form-button-cancel{
+	margin-top: 10px;
+	padding: 0.5rem 1rem;
+}
+.button-add,
+.form-button-submit{
+	background-color: #390f60;
+}
+.button-add:hover,
+.form-button-submit:hover{
+	background-color: #3fcc90;
+}
+
+button,input,select,textarea{
+	font-family:inherit;
+	font-size: 100%;
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+textarea{
+	overflow: auto;
+}
+
+.form{
+	margin-left: 2rem;
+	width: 300px;
+	display: grid;
+	grid-template-columns: 150px 300px 1fr;
+	gap: 1rem;
+}
+.form select,
+.form input[type="text"],
+.form input[type="number"],
+.form input[type="date"],
+.form input[type="email"],
+textarea{
+	border: 1px solid #9f9c9f;
+	color: #2c3e50;
+	border-radius: 5px;
+	padding: 0.5rem;
+	width: 100%;
+}
+.form label {
+	display: block;
+	margin-top:1rem;
+	margin-bottom: 0.5em;
+}
+
+.symbol-required{
+	color: #c0396c;
+}
+
+.form-buttons{
+	margin-top:2rem;
+	grid-column: 1 / 3;
+}
+.form-button-cancel{
+	background-color: #c0396c;
+	width: 100%;
+}
+.list-actions-button-delete{
+	background-color: #c0396c;
+	width: 100%;
+}
+.form-button-cancel:hover,
+.list-actions-button-delete:hover{
+	background-color: #f93c3c;
+}
+
+.form-button-submit,
+.form-button-cancel{
+	box-sizing: border-box;
+	display: block;
+}
+.form-button-submit{
+	margin-bottom:0.5rem;
+}
+
+.form input.error-input,
+.form select.error-input,
+.form textarea.error-input{
+	border: 3px solid #FF99cc;
+}
+
+.errors-text {
+	display: block;
+	font-size: 0.85em;
+	line-height: 2.25rem;
+	width:20rem;
+	margin-top: 0.5em;
+	color: #e74c3c;
+}
+
+.symbol-requireds,
+.errors-text{
+	color:  #c0396c;
+}
+
+.symbol-required{
+	color:  #c0396c;
+	align-items: center;
+	display: flex;
+}
+
+.area{
+	width: 100%; 
+	resize: none;
+}
+
+ /* The alert message box */
+.alert {
+	  padding: 20px;
+	  background-color: #f44336; /* Red */
+	  color: white;
+	  margin-bottom: 15px;
+
+  }
+
+/* The close button */
+.closebtn {
+	  margin-left: 15px;
+	  color: white;
+	  font-weight: bold;
+	  float: right;
+	  font-size: 22px;
+	  line-height: 20px;
+	  cursor: pointer;
+	  transition: 0.3s;
+}
+
+
+label:disabled {
+	color: #000;
+	background-color: lightgray;
+}
+textarea:disabled {
+	color: #000;
+	background-color: lightgray;
+}
+
+select:disabled {
+	color: #000;
+	background-color: lightgray;
+}
+
+input:disabled {
+	color: #000;
+	background-color: lightgray;
+}
+
+
+
+
+/* When moving the mouse over the close button */
+.closebtn:hover {
+  color: black;
+} 
+
+
+.textarea_error{
+	border: 1px solid #FF99cc;
+    box-shadow: 0 0 0 0.2rem #FF99cc;
+}
+
+.footer {
+  width: 100%;
+  position: relative;
+  height: auto;
+  background-color: #1E90FF;
+}
+
+
+@media all and (max-width: 720px){
+	header{
+		flex-direction:column;
+		
+	}
+	header h1{
+		text-align:center;
+	}
+	header img{
+		align-self:center;
+	}
+	nav ul{
+		flex-wrap:wrap;
+	}
+	nav ul li{
+		flex-basis: 50%;
+		text-align:center;
+	}
+	nav ul li a{
+		display: block;
+	}
+	.form{
+		grid-template-columns: 1fr;
+		row-gap: unset;
+		margin-left:unset;
+	}
+	.form-buttons{
+		grid-column: 1/1;
+		width: 50%;
+	}
+}
+
+@media all and (max-width: 400px){
+	body,
+	nav,
+	nav ul,
+	header,
+	main,
+	footer{
+		margin:0;
+		min-width:360px;
+		font-size: 0.85em 
+	}
+	nav ul li{
+		flex-basis:100%;
+	}
+	.form{
+		grid-template-columns: 1fr;
+		row-gap: unset;
+		margin-left:unset;
+	}
+	.form-buttons{
+		grid-column: 1/1;
+		width: 50%;
+		margin: -1em;
+		margin-top: 4.5em;
+	}
+	.list-actions-button-delete,
+	.list-actions-button-edit,
+	.list-actions-button-details,
+	.button-add{
+		font-size: 0.8em;
+		width: 50%;		
+	}
+}

@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+	<meta charset="UTF-8">
+	<title>News MP1</title>
+	<link rel="stylesheet" href="/css/style.css"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+<header>
+	<h1><%= __('main-page.content') %></h1>
+	<img src="/images/logo.jpg" width="60" height="60" alt="Newsmani">
+
+</header>
+<nav>
+	<ul>
+		<li><a href="/changeLang/pl" class="<%= lang == 'pl' ? 'active' : ''%>">PL</a></li>
+		<li><a href="/changeLang/en" class="<%= lang == 'en' ? 'active' : ''%>">EN</a></li>
+	</ul>
+	<ul>
+		<li><a href="/" class="<%= navLocation == 'main' ? 'active' : ''%>"><%= __('nav.main-page') %></a></li>
+		<li><a href="/category" class="<%= navLocation == 'cat' ? 'active' : ''%>"><%= __('nav.cats') %></a></li>
+		<li><a href="/news" class="<%= navLocation == 'news' ? 'active' : ''%>"><%= __('nav.news') %></a></li>
+		<% if(loggedUser) { %>
+		<li><a href="/newsman" class="<%= navLocation == 'man' ? 'active' : ''%>"><%= __('nav.mans') %></a></li>
+		<% } %>
+	</ul>
+</nav>

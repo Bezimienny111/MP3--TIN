@@ -1,0 +1,41 @@
+<%- include('../../fragments/header.ejs') %>
+<main>
+
+	<h2><%= __('nav.cats') %></h2>
+	<table class="table-list">
+		<thead>
+			<tr>
+				<th><%= __('cat.fields.Description') %></th>
+				<th><%= __('list.actions.title') %></th>
+		</thead>
+		<tbody>
+		 <% for (let cat of categories) { %>
+			<tr>
+				<td><%= cat.Description %></td>
+				<td>
+					<ul class ="list-actions">
+						<li>
+							<a href="/category/details/<%=cat.ID_Category%>" class="list-actions-button-details"><%= __('list.actions.details') %></a>
+						</li>
+						<% if(loggedUser) { %>
+						<li>
+							<a href="/category/edit/<%=cat.ID_Category%>" class ="list-actions-button-edit"><%= __('list.actions.edit') %></a>
+						</li>
+						<li>
+							<a href="/category/delete/<%=cat.ID_Category%>" class="list-actions-button-delete"><%= __('list.actions.delete') %></a>
+						</li>
+						<% } %>
+					</ul>
+				</td>
+			</tr>
+			 <% } %>
+		</tbody>
+	</table>
+
+	<div class = "form-buttons">
+	<% if(loggedUser) { %>
+	<a href="/category/add" class="button-add"><%= __('cat.list.addNew') %></a>
+	<% } %>
+	</div>
+</main>
+<%- include('../../fragments/footer.ejs') %>

@@ -1,0 +1,30 @@
+
+<% if(!loggedUser) { %>
+    <div id=login">
+    <h5><%= __('login.title') %></h5>
+    <form method="post" action="/login" novalidate>
+        <label for="loginNick"><%= __('login.nick') %></label>
+        <input type="text" id="loginNick" name="Nick">
+
+        <label for="loginPassword"><%= __('login.pass') %></label>
+        <input type="password" id="loginPassword" name="password">
+
+        <input type="submit" value=<%= __('login.log') %>>
+        <span id="loginError"><%= loginError ? loginError : ''%> </span>
+    </form>
+    </div>
+    <% } else { %>
+
+        <span><%= __('login.logged') %> <%= loggedUser.Name + " " + loggedUser.Surname%></span>
+        <a href="/logout"><%= __('login.out') %></a>
+
+
+
+    <% } %>
+
+
+<footer class = "footer">
+Robert Kowalski s18290
+</footer>
+</body>
+</html>

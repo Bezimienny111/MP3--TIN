@@ -1,0 +1,127 @@
+{
+	"main-page": {
+		"content": "Strona główna"
+	},
+	"nav": {
+		"main-page": "Strona główna",
+		"cats": "Kategorie",
+		"news": "Newsy",
+		"mans": "Newsmani"
+	},
+	"list": {
+		"actions": {
+			"title": "Akcje",
+			"details": "Szczegóły",
+			"edit": "Edytuj",
+			"delete": "Usuń"
+		}
+	},
+	"form": {
+		"actions": {
+			"return": "Powrót",
+			"edit": "Edytuj",
+			"cancel": "Anuluj"
+		}
+	},
+	"cat": {
+		"fields": {
+			"Description": "Opis",
+			"Date": "Data",
+			"todos": "Opcje"
+		},
+		"list": {
+			"title": "Kategorie",
+			"addNew": "Dodaj nową kategorię",
+			"pageTitle": "Kategorię"
+		},
+		"form": {
+			"catdet": "Sczegóły Kategorii",
+			"news": "News",
+			"man": "Autor",
+			"add": {
+				"pageTitle": "Dodawanie kategorii",
+				"btnLabel": "Dodaj Kategorię"
+			},
+			"edit": {
+				"pageTitle": "Edycja kategorii",
+				"btnLabel": "Zapisz zmiany"
+			},
+			"newdet": "cat.form.newdet"
+		}
+	},
+	"news": {
+		"fields": {
+			"Newsman": "Newsman",
+			"Category": "Kategoria",
+			"Content": "Treść",
+			"Date": "Data",
+			"Links": "Linki"
+		},
+		"list": {
+			"title": "Newsy",
+			"addNew": "Dodaj nowy news",
+			"pageTitle": "Newsy"
+		},
+		"form": {
+			"newdet": "Sczegóły newsa",
+			"add": {
+				"pageTitle": "Dodawanie newsa",
+				"btnLabel": "Dodaj newsa"
+			},
+			"edit": {
+				"pageTitle": "Edycja newsa",
+				"btnLabel": "Zapisz zmiany"
+			}
+		}
+	},
+	"man": {
+		"fields": {
+			"Nick": "Nick",
+			"Email": "Email",
+			"Name": "Imię",
+			"Surname": "Nazwisko",
+			"Salary_per_news": "Płaca",
+			"password": "Hasło",
+			"Admin": "1-admin,0-user"
+		},
+		"list": {
+			"title": "Newsmani",
+			"addNew": "Dodaj nowego newsmana",
+			"pageTitle": "Newsmani"
+		},
+		"form": {
+			"mandet": "Sczegóły newsmana",
+			"List": "Lista newsów",
+			"Categ": "Kategoria",
+			"add": {
+				"pageTitle": "Dodawanie newsmana",
+				"btnLabel": "Dodaj newsmana"
+			},
+			"edit": {
+				"pageTitle": "Edycja newsmana",
+				"btnLabel": "Zapisz zmiany"
+			},
+			"catdet": "man.form.catdet"
+		}
+	},
+	"validationMessage": {
+		"fieldRequired": "pole wymagane",
+		"textLengthRange": "pole powinno zawierac 2 - 60 znaków",
+		"summary": "Formularz zawiera błędy",
+		"futureDate": "Data nie może być z przyszłości PL",
+		"resultMaxNumber": "liczba jest za duża",
+		"dateFormat": "Data musi mieć format yyyy-MM-dd",
+		"email": "Nieprawidłowy email",
+		"isNumber": "Musi być liczbą z właściwego zakresu",
+		"Admin": "1 - admin, 0 - user",
+		"linkisLen": "Za długie linki."
+	},
+	"login": {
+		"title": "Logowanie",
+		"nick": "Nick",
+		"pass": "Hasło",
+		"log": "Zaloguj",
+		"logged": "Jesteś zalogowany jako:",
+		"out": "wyloguj"
+	}
+}

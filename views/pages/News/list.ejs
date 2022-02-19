@@ -1,0 +1,40 @@
+<%- include('../../fragments/header.ejs') %>
+<main>
+	<h2><%= __('news.list.title') %></h2>
+	<table class="table-list">
+		<thead>
+			<tr>
+				<th><%= __('news.fields.Content') %></th>
+				<th><%= __('list.actions.title') %></th>
+			</tr>
+			
+		</thead>
+		<tbody>
+		 <% for (let ne of news) { %>
+			<tr>
+			<td><%= ne.Content %></td>
+				<td>
+					<ul class ="list-actions">
+						<li>
+							<a href="/news/details/<%=ne.ID_news%>" class="list-actions-button-details"><%= __('list.actions.details') %></a>
+						</li>
+						<% if(loggedUser && loggedUser.ID_Newsman === ne.Newsman_ID_Newsman)  { %>
+						<li>
+							<a href="/news/edit/<%=ne.ID_news%>" class ="list-actions-button-edit"><%= __('list.actions.edit') %></a>
+						</li>
+						<li>
+							<a href="/news/delete/<%=ne.ID_news%>" class="list-actions-button-delete"><%= __('list.actions.delete') %></a>
+						</li>
+						<% } %>
+					</ul>
+				</td>
+			</tr>
+		 <% } %>
+	</tbody>
+	</table>
+	<% if(loggedUser) { %>
+	<p><a href="/news/add" class="button-add"><%= __('news.list.addNew') %></a></p>
+	<% } %>
+</main>
+
+<%- include('../../fragments/footer.ejs') %>

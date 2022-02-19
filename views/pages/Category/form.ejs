@@ -1,0 +1,93 @@
+﻿<%- include('../../fragments/header.ejs') %>
+<main>
+	<script type="application/javascript" src="/js/validationCommon.js"></script>
+	<script type="application/javascript" src="/js/validationCategoryForm.js"></script>
+    <h2><%= pageTitle %></h2>
+
+
+	<div style="display: none">
+		<span id="errorMessage-required"><%= __('validationMessage.fieldRequired') %></span>
+		<span id="errorMessage-summary"><%= __('validationMessage.summary') %></span>
+		<span id="errorMessage-futureDate"><%= __('validationMessage.futureDate') %></span>
+		<span id="errorMessage-dateFormat"><%= __('validationMessage.dateFormat') %></span>
+	</div>
+
+
+
+
+
+	<form class="form" method="post" action="<%=formAction%>" novalidate onsubmit="return validateForm();" >
+	<!-- onsubmit="return validateForm();" -->
+
+	<input type="hidden" name="ID_Category" value="<%= categories.ID_Category %>">
+
+	<label for="Description"><%= __('cat.fields.Description') %> <span class = "symbol-requireds">*</span></label>
+	<input
+	required class=<%= validationErrors.find(e => e.path.includes('Description')) ? 'error-input' : '' %>
+	type ="text" name="Description" id="Description" placeholder="placeholder" value="<%= categories.Description %>"
+	<%= (formMode == 'showDetails') ? 'disabled' : "" %> /> 
+	<span id="errorDescription" class = "symbol-required">
+	
+	<% if (validationErrors.find(e => e.path.includes('Description'))) {%>
+	<%= validationErrors.find(e => e.path.includes('Description')).message %>
+	<% } %>
+
+	</span>
+
+		<label for="Date"><%= __('cat.fields.Date') %> <span class = "symbol-requireds">*</span></label>
+	<input type ="date" <%=(formMode=='showDetails')?'disabled':""%>
+	class="<%=validationErrors.find(e => e.path.includes('_Date')) ? 'error-input' : '' %>"  name="_Date" id="Date"
+	value="<%=categories._Date%>">
+		<span id="errorDate" class = "symbol-required">
+		<%if(validationErrors.find(e => e.path.includes('_Date'))){%>
+		<%=validationErrors.find(e => e.path.includes('_Date')).message%>
+		<%}%>
+		</span>
+
+		
+
+
+	<% if (formMode == 'showDetails' && (loggedUser)) { %>
+            <div class="form-buttons">
+                <a href="/category/edit/<%= categories.ID_Category %>" class="list-actions-button-edit"><%= __('form.actions.edit') %></a>
+            </div>
+        <% } %>
+
+		<div class = "form-buttons">
+
+		<% if (formMode != 'showDetails') { %>
+		<span  class="symbol-required" id ="errorsSummary"></span>
+		<input type="submit" class="button-add"  value=<%= btnLabel %> />
+		<% } %>
+
+		<a href="/category" class =" form-button-cancel"><%= __('form.actions.cancel') %></a>
+	    </div>
+		</div>
+		</form>
+
+		
+	  <% if (formMode == 'showDetails') { %>
+	   <h2><%= __('cat.form.catdet') %></h2>
+	   	<table class="table-list">
+		<thead>
+			<tr>
+				<th><%= __('cat.form.news') %></th>
+				<th><%= __('cat.form.man') %></th>
+			</tr>
+		</thead>
+		<tbody>
+			<% for ( let ne of categories.news) { %> 
+			<tr>
+			<td> <textarea class="area" rows="3" disabled><%= ne.Content %></textarea></td>
+						
+			<td> 	<% if(loggedUser) { %>	<a href="/newsman/details/<%= ne.newsman.ID_Newsman%>">	     <% } %>                      <%= ne.newsman.Nick %></td>
+			</tr>
+		 <% } %>
+		</tbody>
+			</table>	
+		 <% } %>
+	
+
+	
+</main>
+<%- include('../../fragments/footer.ejs') %>

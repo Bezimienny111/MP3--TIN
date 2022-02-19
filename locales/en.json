@@ -1,0 +1,125 @@
+{
+	"main-page": {
+		"content": "Main Page"
+	},
+	"nav": {
+		"main-page": "Main Page",
+		"cats": "Categories",
+		"news": "News",
+		"mans": "Newsmans"
+	},
+	"list": {
+		"actions": {
+			"title": "Actions",
+			"details": "Details",
+			"edit": "Edit",
+			"delete": "Exterminate"
+		}
+	},
+	"form": {
+		"actions": {
+			"return": "Return",
+			"edit": "Edit",
+			"cancel": "Cancel"
+		}
+	},
+	"cat": {
+		"fields": {
+			"Description": "Desc",
+			"Date": "Date",
+			"todos": "Options"
+		},
+		"list": {
+			"title": "Categories",
+			"addNew": "Add New Cat",
+			"pageTitle": "Categories"
+		},
+		"form": {
+			"catdet": "Deteails of Cat",
+			"news": "News",
+			"man": "Autor",
+			"add": {
+				"pageTitle": "Add Cat",
+				"btnLabel": "Add Categories"
+			},
+			"edit": {
+				"pageTitle": "Edit Cat",
+				"btnLabel": "Save"
+			}
+		}
+	},
+	"news": {
+		"fields": {
+			"Newsman": "Newsman",
+			"Category": "Categorie",
+			"Content": "Content",
+			"Date": "Date",
+			"Links": "Links"
+		},
+		"list": {
+			"title": "News",
+			"addNew": "Add New news",
+			"pageTitle": "News"
+		},
+		"form": {
+			"newdet": "Details of news",
+			"add": {
+				"pageTitle": "Add news",
+				"btnLabel": "Add news"
+			},
+			"edit": {
+				"pageTitle": "Edit news",
+				"btnLabel": "Save"
+			}
+		}
+	},
+	"man": {
+		"fields": {
+			"Nick": "Nick",
+			"Email": "Email",
+			"Name": "Name",
+			"Surname": "Surname",
+			"Salary_per_news": "Salary",
+			"password": "Password",
+			"Admin": "1-admin,0-user"
+		},
+		"list": {
+			"title": "Newsmans",
+			"addNew": "Add new newsman",
+			"pageTitle": "Newsmans"
+		},
+		"form": {
+			"mandet": "Details of newsman",
+			"List": "Lista of Newsmans",
+			"Categ": "Category",
+			"add": {
+				"pageTitle": "Add newsman",
+				"btnLabel": "Add newsman"
+			},
+			"edit": {
+				"pageTitle": "Edit newsman",
+				"btnLabel": "Save"
+			},
+			"catdet": "man.form.catdet"
+		}
+	},
+	"validationMessage": {
+		"fieldRequired": "fieldRequired",
+		"textLengthRange": "charaters 2 - 60 Required",
+		"summary": "Errors",
+		"futureDate": "Date cant be from duture",
+		"dateFormat": "Date format must be: yyyy-MM-dd",
+		"email": "Bad email",
+		"isNumber": "To small/large number",
+		"linkisLen": "Too long links",
+		"Admin": "1 - admin, 0 - user"
+	},
+	"login": {
+		"title": "Login Panel",
+		"nick": "Nick",
+		"pass": "Password",
+		"log": "Login",
+		"logged": "Logged as",
+		"out": "LogOut"
+	}
+}

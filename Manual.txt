@@ -1,0 +1,2 @@
+Strona korzysta z Dockrera do uruchomienia. 
+Sposób uruchomienia jest zgodny z tutorialem 2_2.

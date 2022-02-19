@@ -1,0 +1,147 @@
+<%- include('../../fragments/header.ejs') %>
+<main>
+    <script type="application/javascript" src="/js/validationCommon.js"></script>
+    <script type="application/javascript" src="/js/validationNewsForm.js"></script>
+     <h2><%= pageTitle %></h2>
+    <form class="form" method="post" action="<%=formAction%>" novalidate onsubmit="return validateForm();">
+        <!--onsubmit="return validateForm();"  -->
+
+    <input type="hidden" name="ID_news" value="<%= news.ID_news %>">
+
+    <div style="display: none">
+        <span id="errorMessage-required"><%= __('validationMessage.fieldRequired') %></span>
+        <span id="errorMessage-textLengthRange"><%= __('validationMessage.textLengthRange') %></span>
+        <span id="errorMessage-summary"><%= __('validationMessage.summary') %></span>
+        <span id="errorMessage-futureDate"><%= __('validationMessage.futureDate') %></span>
+        <span id="errorMessage-dateFormat"><%= __('validationMessage.dateFormat') %></span>
+        <span id="errorMessage-linksLen"><%= __('validationMessage.linkisLen') %></span>
+
+    </div>
+
+
+    <label for="Newsman"><%= __('news.fields.Newsman') %> <span class = "symbol-requireds">*</span></label>
+    <select  class="<%= validationErrors.find(e => e.path.includes('Newsman_ID_Newsman')) ? 'textarea_error' : '' %>" name="Newsman_ID_Newsman" id="Newsman" required <%= (formMode == 'showDetails') ? 'disabled' : "" %> /> 
+    <option value ="" selected>--Wybierz newsmana--</option>
+     <% for (let i=0; i<allman.length; i++)
+     { let man = allman[i]; %>
+            <option value="<%= man.ID_Newsman %>" label="<%= man.Nick %>"
+                <%= (man.ID_Newsman == news.Newsman_ID_Newsman) ? 'selected' : ''%>>  </option>
+        <% } %>
+
+    </select>
+    <span id="errorNewsman" class = "symbol-required">
+        <%if(validationErrors.find(e => e.path.includes('Newsman_ID_Newsman'))){%>
+    <%=validationErrors.find(e => e.path.includes('Newsman_ID_Newsman')).message%>
+    <%}%>
+    </span>
+    
+
+
+    <label for="Category"><%= __('news.fields.Category') %> <span class = "symbol-requireds">*</span></label>
+    <select class="<%= validationErrors.find(e => e.path.includes('Category_ID_Category')) ? 'textarea_error' : '' %>" name="Category_ID_Category" id="Category" <%= (formMode == 'showDetails') ? 'disabled' : "" %> /> 
+    <option value ="" selected>--Wybierz Kategorie--</option>
+     <% for (let i=0; i<allcat.length; i++) { let man = allcat[i]; %>
+            <option value="<%= man.ID_Category %>" label="<%= man.Description %>"
+                <%= (man.ID_Category == news.Category_ID_Category) ? 'selected' : ''%>></option>
+        <% } %>
+    </select>
+    <span id="errorCategory" class = "symbol-required">
+        <%if(validationErrors.find(e => e.path.includes('Category_ID_Category'))){%>
+    <%=validationErrors.find(e => e.path.includes('Category_ID_Category')).message%>
+    <%}%>
+    </span>
+    
+
+
+
+    <label for="Content"><%= __('news.fields.Content') %>  <span class = "symbol-requireds">*</span></label>
+    <textarea class="<%= validationErrors.find(e => e.path.includes('Content')) ? 'textarea_error' : '' %>"  name="Content" id="Content" rows="4" placeholder="tresc"
+    <%=(formMode == 'showDetails') ? 'disabled' : "" %> /><%=news.Content%></textarea>
+    <span id="errorContent" class = "symbol-required">
+    <%if(validationErrors.find(e => e.path.includes('Content'))){%>
+    <%=validationErrors.find(e => e.path.includes('Content')).message%>
+    <%}%>
+    </span>
+    
+
+
+
+
+
+		<label for="Date"><%= __('news.fields.Date') %>  <span class = "symbol-requireds">*</span></label>
+	<input type ="date" <%=(formMode=='showDetails')?'disabled':""%>
+	class="<%=validationErrors.find(e => e.path.includes('_Date')) ? 'error-input' : '' %>"  name="_Date" id="Date"
+	value="<%=news._Date%>">
+		<span id="errorDate" class = "symbol-required">
+		<%if(validationErrors.find(e => e.path.includes('_Date'))){%>
+		<%=validationErrors.find(e => e.path.includes('_Date')).message%>
+		<%}%>
+		</span>
+    
+    <label for="Links"><%= __('news.fields.Links') %>  </label>
+    <input type ="text" <%= (formMode == 'showDetails') ? 'disabled' : "" %> name="Dodatkowe_linki" id="Links" placeholder="www.www.www"  value="<%= news.Dodatkowe_linki %>" class="<%= validationErrors.find(e => e.path.includes('Dodatkowe_linki')) ? 'error-input' : ''%>"
+     /> 
+    <span id="errorLinks" class = "symbol-required">
+    <%if(validationErrors.find(e => e.path.includes('Dodatkowe_linki'))){%>
+    <%=validationErrors.find(e => e.path.includes('Dodatkowe_linki')).message%>
+    <%}%>
+    </span>
+    
+    <% if (formMode == 'showDetails' && (loggedUser) ) { %>
+            <div class="form-buttons">
+                <a href="/news/edit/<%= news.ID_news %>" class="list-actions-button-edit"><%= __('form.actions.edit') %></a>
+            </div>
+        <% } %>
+
+        <div class = "form-buttons">
+
+        <% if (formMode != 'showDetails') { %>
+        <span  class="symbol-required" id ="errorsSummary"></span>
+        <input type="submit" class="button-add"  value=<%= btnLabel %> />
+        <% } %>
+
+        <a href="/news" class =" form-button-cancel"><%= __('form.actions.cancel') %></a>
+        </div>
+        </div>
+        </form>
+
+     <% if (formMode == 'showDetails'){ %>
+       <h2><%= __('news.form.newdet') %></h2>
+        <table class="table-list">
+        <thead>
+            <tr>
+                <th><%= __('news.fields.Newsman') %></th>
+                <th><%= __('news.fields.Category') %></th>
+                <th><%= __('news.fields.Date') %></th>
+                <th><%= __('news.fields.Links') %></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td> 	<% if(loggedUser) { %> <a href="/newsman/details/<%= news.newsman.ID_Newsman%>">  <% } %> <%= news.newsman.Nick %></td>
+                <td><a href="/category/details/<%= news.cattegory.ID_Category%>"> <%= news.cattegory.Description %></td>
+                <td><%=news._Date%></td>
+                <td><%=news.Dodatkowe_linki	%></td>
+                
+        </tbody>		
+    </table>
+    <table class="table-list">		
+        <thead>
+            <tr>
+                <th><%= __('news.fields.Content') %></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+            <td> <textarea class="area" rows="2" disabled> <%= news.Content %></textarea>
+            </td>
+            </tr>
+            <tr>
+
+            </tbody>
+            </table>	
+            <% } %>
+
+</main>
+
+<%- include('../../fragments/footer.ejs') %>
